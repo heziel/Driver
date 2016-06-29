@@ -28,7 +28,7 @@ public class GenomeAssembly {
 	
 	private static final String ENCODING = "UTF-8";
 	private static final String OUTPUT_FILE_NAME = "superstring.txt";
-    private static final String STRINGS_DELIMITER= ">Rosalind_";
+    	private static final String STRINGS_DELIMITER= ">Rosalind_";
     
 	/*
 	 * This Method uses a greedy Algorithm approach.  
@@ -50,17 +50,17 @@ public class GenomeAssembly {
 	
 		while ( dnaStrings.size() > 0 ){				
 
-			suffixStartIndex++;
+		    	suffixStartIndex++;
 	
-		    for ( String dna : dnaStrings ) {
-		    	// starting from the middle because of the assumption.
-		    	int middleDNALength = dna.length() / 2;
+		    	for ( String dna : dnaStrings ) {
+		    		// starting from the middle because of the assumption.
+		    		int middleDNALength = dna.length() / 2;
 		    	
-		    	// prefix/suffix will shrink/grow by 1 each loop until we will find an overlap.
-		    	String suffix = dna.substring( middleDNALength - suffixStartIndex, dna.length());
-		    	String prefix = dna.substring(0, middleDNALength + suffixStartIndex);
+		    		// prefix/suffix will shrink/grow by 1 each loop until we will find an overlap.
+		    		String suffix = dna.substring( middleDNALength - suffixStartIndex, dna.length());
+		    		String prefix = dna.substring(0, middleDNALength + suffixStartIndex);
 		    	
-		    	// once we found an overlap we can write the remaining into the superString and continue our search for overlaps.
+		    		// once we found an overlap we can write the remaining into the superString and continue our search for overlaps.
 				if  ( superString.endsWith(prefix)  ){
 					superString = superString + dna.substring( middleDNALength + suffixStartIndex , dna.length());
 					foundOverlap = true;
@@ -129,10 +129,10 @@ public class GenomeAssembly {
 		try {
 			output = new PrintWriter(OUTPUT_FILE_NAME, ENCODING);
 		} catch (FileNotFoundException e) {
-            System.out.println("ERROR: Output file was not Found");
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("ERROR: Unsupport encoding");
-        }
+            		System.out.println("ERROR: Output file was not Found");
+        	} catch (UnsupportedEncodingException e) {
+        		System.out.println("ERROR: Unsupport encoding");
+        	}
 		return output;
 	}
 	
